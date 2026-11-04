@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Além do Sintoma | Jhuan Fernandes - Psicanálise, Medicina & Filosofia</title>
+    <meta name="description" content="Psicanálise de alta autoridade, escuta clínica profunda e assessoria corporativa em saúde mental por Jhuan Fernandes.">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            300: '#F3E5AB',
+                            400: '#E5C158',
+                            500: '#D4AF37',
+                            600: '#AA820A',
+                            700: '#856404'
+                        },
+                        obsidian: '#070708',
+                        darkcard: '#111114',
+                        darkborder: '#22222A'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Cinzel', 'Georgia', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&family=Inter:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* Custom Glowing & Gold FX */
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #FFF6D6 0%, #D4AF37 50%, #AA820A 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .gold-border-glow {
+            box-shadow: 0 0 25px -5px rgba(212, 175, 55, 0.15);
+        }
+
+        .gold-card-hover {
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .gold-card-hover:hover {
+            border-color: rgba(212, 175, 55, 0.4);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px -10px rgba(212, 175, 55, 0.2);
+        }
+
+        /* Subtle Grid Overlay */
+        .bg-grid-pattern {
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #070708;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #22222A;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #D4AF37;
+        }
+    </style>
+</head>
+<body class="bg-obsidian text-gray-200 font-sans antialiased selection:bg-gold-500 selection:text-black min-h-screen flex flex-col justify-between">
+
+    <!-- BACKGROUND NEURAL / GRADIENT CANVAS EFFECT -->
+    <div class="fixed inset-0 pointer-events-none z-0 opacity-40">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-gold-500/10 blur-[140px] rounded-full"></div>
+        <div class="absolute bottom-10 left-10 w-[400px] h-[400px] bg-amber-900/10 blur-[120px] rounded-full"></div>
+        <div class="absolute inset-0 bg-grid-pattern opacity-60"></div>
+    </div>
+
+    <!-- NAVIGATION BAR -->
+    <header class="sticky top-0 z-50 backdrop-blur-md bg-obsidian/80 border-b border-darkborder/60 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <!-- Monogram Brand -->
+            <a href="#" class="flex items-center space-x-3 group">
+                <div class="w-11 h-11 rounded-full border border-gold-500/40 bg-darkcard flex items-center justify-center transition-all duration-300 group-hover:border-gold-400 group-hover:shadow-[0_0_15px_rgba(212,175,55,0.3)]">
+                    <span class="font-serif font-bold text-xl gold-gradient-text tracking-wider">JF</span>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-serif font-bold tracking-widest text-sm text-gray-100 group-hover:text-gold-400 transition-colors">ALÉM DO SINTOMA</span>
+                    <span class="text-[10px] tracking-widest text-gray-400 uppercase">Jhuan Fernandes</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-gray-300">
+                <a href="#pilares" class="hover:text-gold-400 transition-colors">Tríade</a>
+                <a href="#sobre" class="hover:text-gold-400 transition-colors">Trajetória</a>
+                <a href="#servicos" class="hover:text-gold-400 transition-colors">Atuação & B2B</a>
+                <a href="#grupo" class="hover:text-gold-400 transition-colors">Áudios Fechados</a>
+            </nav>
+
+            <!-- CTA Actions -->
+            <div class="hidden sm:flex items-center space-x-4">
+                <button onclick="openModal('agendamento')" class="text-xs uppercase tracking-wider font-semibold text-gold-400 hover:text-white px-4 py-2.5 rounded-lg border border-gold-500/30 hover:border-gold-400 transition-all">
+                    Agendar Sessão
+                </button>
+                <a href="#grupo" class="text-xs uppercase tracking-wider font-semibold bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-400 hover:to-gold-500 text-black px-5 py-2.5 rounded-lg shadow-lg hover:shadow-gold-500/20 transition-all transform hover:-translate-y-0.5">
+                    Entrar no Grupo
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button id="mobileMenuBtn" class="md:hidden text-gray-300 hover:text-gold-400 p-2">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Drawer -->
+        <div id="mobileDrawer" class="hidden md:hidden bg-darkcard border-b border-darkborder px-6 py-6 space-y-4">
+            <a href="#pilares" class="block text-gray-300 hover:text-gold-400 py-2">Tríade</a>
+            <a href="#sobre" class="block text-gray-300 hover:text-gold-400 py-2">Trajetória</a>
+            <a href="#servicos" class="block text-gray-300 hover:text-gold-400 py-2">Atuação & B2B</a>
+            <a href="#grupo" class="block text-gray-300 hover:text-gold-400 py-2">Áudios Fechados</a>
+            <div class="pt-4 border-t border-darkborder flex flex-col space-y-3">
+                <button onclick="openModal('agendamento')" class="w-full text-center text-xs uppercase tracking-wider font-semibold text-gold-400 border border-gold-500/40 py-3 rounded-lg">Agendar Consulta</button>
+                <a href="#grupo" class="w-full text-center text-xs uppercase tracking-wider font-semibold bg-gold-500 text-black py-3 rounded-lg">Acessar Grupo VIP</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="relative z-10">
+
+        <!-- HERO SECTION -->
+        <section class="relative pt-16 pb-24 md:pt-28 md:pb-36 overflow-hidden">
+            <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Hero Text -->
+                <div class="lg:col-span-7 space-y-8 text-center lg:text-left">
+                    <div class="inline-flex items-center space-x-2 px-4 py-2 rounded-full border border-gold-500/30 bg-gold-500/5 backdrop-blur-sm">
+                        <span class="w-2 h-2 rounded-full bg-gold-400 animate-pulse"></span>
+                        <span class="text-xs font-semibold tracking-wider text-gold-300 uppercase">Escuta Clínica & Alta Autoridade</span>
+                    </div>
+
+                    <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight text-white">
+                        Investigando o que pulsa <span class="gold-gradient-text block mt-2">Além do Sintoma</span>
+                    </h1>
+
+                    <p class="text-base sm:text-lg text-gray-400 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-light">
+                        Uma abordagem clínica que une o rigor da <strong class="text-gray-200 font-medium">Psicanálise</strong>, a base científica da <strong class="text-gray-200 font-medium">Medicina</strong> e a reflexão da <strong class="text-gray-200 font-medium">Filosofia</strong> para atravessar o burnout, a angústia e os dilemas da alta performance.
+                    </p>
+
+                    <!-- Hero Call to Actions -->
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                        <a href="https://wa.me/5535999999999?text=Ol%C3%A1%2C%20Jhuan.%20Gostaria%20de%20entrar%20no%20grupo%20Al%C3%A9m%20do%20Sintoma." target="_blank" class="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-400 hover:to-gold-500 text-black font-semibold rounded-xl shadow-xl shadow-gold-500/15 flex items-center justify-center space-x-3 transition-all transform hover:-translate-y-0.5">
+                            <i data-lucide="headphones" class="w-5 h-5"></i>
+                            <span>Entrar no Grupo de Áudios</span>
+                        </a>
+                        
+                        <button onclick="openModal('agendamento')" class="w-full sm:w-auto px-8 py-4 border border-darkborder hover:border-gold-500/50 bg-darkcard/80 text-gray-200 hover:text-white font-medium rounded-xl flex items-center justify-center space-x-3 transition-all">
+                            <i data-lucide="calendar" class="w-5 h-5 text-gold-400"></i>
+                            <span>Agendar Análise Individual</span>
+                        </button>
+                    </div>
+
+                    <!-- Mini Credentials Badge -->
+                    <div class="pt-8 border-t border-darkborder/60 flex flex-wrap items-center justify-center lg:justify-start gap-8 text-xs text-gray-400 font-medium">
+                        <div class="flex items-center space-x-2">
+                            <i data-lucide="check-circle-2" class="w-4 h-4 text-gold-400"></i>
+                            <span>6 Anos de Prática Clínica</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <i data-lucide="check-circle-2" class="w-4 h-4 text-gold-400"></i>
+                            <span>Bacharel em Direito & Medicina (em curso)</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <i data-lucide="check-circle-2" class="w-4 h-4 text-gold-400"></i>
+                            <span>Consultoria B2B & Alta Performance</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Hero Neural SVG Emblem -->
+                <div class="lg:col-span-5 flex justify-center relative">
+                    <div class="relative w-72 sm:w-96 h-72 sm:h-96 rounded-full border border-gold-500/20 bg-gradient-to-b from-darkcard to-obsidian p-8 flex items-center justify-center gold-border-glow">
+                        
+                        <!-- Glowing Rings -->
+                        <div class="absolute inset-0 rounded-full border border-gold-400/10 animate-spin" style="animation-duration: 40s;"></div>
+                        <div class="absolute inset-4 rounded-full border border-gold-500/20 border-dashed"></div>
+
+                        <!-- Stylized Brain Knot Icon SVG -->
+                        <svg class="w-full h-full text-gold-500 opacity-90 drop-shadow-[0_0_15px_rgba(212,175,55,0.4)]" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Outer Contour -->
+                            <path d="M100 25C60 25 35 55 35 95C35 130 55 155 80 170C88 175 95 180 100 180C105 180 112 175 120 170C145 155 165 130 165 95C165 55 140 25 100 25Z" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                            <!-- Intertwined Internal Nodes -->
+                            <path d="M70 65C85 50 115 50 130 65C145 80 145 110 130 125C115 140 85 140 70 125C55 110 55 80 70 65Z" stroke="currentColor" stroke-width="2" stroke-dasharray="4 2"/>
+                            <!-- Spiral Path of Resolution -->
+                            <path d="M100 100C90 90 90 75 100 65C110 55 125 55 135 65C145 75 145 95 130 110C110 130 75 120 65 100C55 80 70 50 100 40C135 30 170 60 165 100C160 140 120 170 100 175" stroke="url(#goldGradient)" stroke-width="3" stroke-linecap="round"/>
+                            <defs>
+                                <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#FFF6D6" />
+                                    <stop offset="50%" stop-color="#D4AF37" />
+                                    <stop offset="100%" stop-color="#AA820A" />
+                                </linearGradient>
+                            </defs>
+                        </svg>
+
+                        <!-- Floating Quote Tag -->
+                        <div class="absolute -bottom-4 bg-darkcard/95 border border-gold-500/40 backdrop-blur-md px-4 py-2.5 rounded-xl text-center shadow-xl">
+                            <p class="font-serif text-xs italic text-gold-300">"Dar nome ao que nos falta."</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- PILLARS SECTION (TRIAD) -->
+        <section id="pilares" class="py-20 bg-darkcard/40 border-y border-darkborder/50">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
+                    <h2 class="text-xs uppercase font-bold tracking-widest text-gold-400">Fundamentos da Prática</h2>
+                    <p class="font-serif text-3xl sm:text-4xl font-bold text-white">A Tríade Epistêmica</p>
+                    <p class="text-gray-400 text-sm">Uma abordagem integrada que recusa o reducionismo da simplificação e respeita a complexidade da dor humana.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Pillar 1 -->
+                    <div class="bg-darkcard border border-darkborder p-8 rounded-2xl gold-card-hover relative overflow-hidden group">
+                        <div class="w-12 h-12 rounded-xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center mb-6 text-gold-400 group-hover:scale-110 transition-transform">
+                            <i data-lucide="brain" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="font-serif text-xl font-bold text-white mb-3">1. Psicanálise</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                            Investigação do inconsciente, do desejo e das repetições sintomáticas. Uma escuta clínica refinada para aquilo que não pode ser dito sem véus.
+                        </p>
+                        <span class="text-xs font-serif text-gold-400/80 italic">"O inconsciente é estruturado como linguagem." — Lacan</span>
+                    </div>
+
+                    <!-- Pillar 2 -->
+                    <div class="bg-darkcard border border-darkborder p-8 rounded-2xl gold-card-hover relative overflow-hidden group">
+                        <div class="w-12 h-12 rounded-xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center mb-6 text-gold-400 group-hover:scale-110 transition-transform">
+                            <i data-lucide="activity" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="font-serif text-xl font-bold text-white mb-3">2. Medicina</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                            Entendimento das bases neurobiológicas, somatização, fadiga central e regulação do estresse. O corpo como tradutor biológico da angústia.
+                        </p>
+                        <span class="text-xs font-serif text-gold-400/80 italic">Compreensão integrativa da saúde física & mental.</span>
+                    </div>
+
+                    <!-- Pillar 3 -->
+                    <div class="bg-darkcard border border-darkborder p-8 rounded-2xl gold-card-hover relative overflow-hidden group">
+                        <div class="w-12 h-12 rounded-xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center mb-6 text-gold-400 group-hover:scale-110 transition-transform">
+                            <i data-lucide="book-open" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="font-serif text-xl font-bold text-white mb-3">3. Filosofia</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                            Reflexão existencial sobre a finitude, a responsabilidade, a ética e o tempo contemporâneo. Respostas éticas para a sobrecarga da existência.
+                        </p>
+                        <span class="text-xs font-serif text-gold-400/80 italic">"O cuidado de si como custódia existencial." — Tillich</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT / CLINICAL POSITIONING -->
+        <section id="sobre" class="py-24 relative">
+            <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-5">
+                    <div class="relative">
+                        <!-- Minimalist Portrait Box Simulation -->
+                        <div class="w-full aspect-[4/5] rounded-2xl bg-gradient-to-b from-darkcard to-obsidian border border-gold-500/30 p-8 flex flex-col justify-between gold-border-glow">
+                            <div class="flex justify-between items-start">
+                                <span class="font-serif font-bold text-2xl gold-gradient-text">JF</span>
+                                <span class="text-xs text-gold-400 border border-gold-500/30 px-3 py-1 rounded-full uppercase tracking-wider">Perfil Clínico</span>
+                            </div>
+
+                            <div class="space-y-4">
+                                <div class="w-12 h-1 bg-gold-500 rounded-full"></div>
+                                <h4 class="font-serif text-2xl text-white font-bold">Jhuan Fernandes</h4>
+                                <p class="text-xs text-gray-400 leading-relaxed">
+                                    Psicanalista clínico com 6 anos de escuta singular. Graduado em Direito com histórico em contextos de alta pressão (Tribunal do Júri) e acadêmico de Medicina.
+                                </p>
+                            </div>
+
+                            <div class="pt-4 border-t border-darkborder flex justify-between text-[11px] text-gray-400">
+                                <span>Foco: Burnout & Performance</span>
+                                <span>TDAH & Subjetividade</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 space-y-6">
+                    <h2 class="text-xs uppercase font-bold tracking-widest text-gold-400">Trajetória & Filosofia Clínica</h2>
+                    <h3 class="font-serif text-3xl sm:text-4xl font-bold text-white leading-tight">
+                        Afastando-se do lugar comum para encarar a real complexidade humana
+                    </h3>
+
+                    <p class="text-gray-300 text-sm sm:text-base leading-relaxed font-light">
+                        Minha atuação é voltada para homens e mulheres que lidam com contextos de alta responsabilidade, cobrança constante por performance e angústias silenciosas. Acredito que o sintoma não é um defeito a ser erradicado às pressas, mas uma mensagem do inconsciente que pede passagem e escuta.
+                    </p>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+                        <div class="p-4 bg-darkcard rounded-xl border border-darkborder">
+                            <h4 class="font-semibold text-gold-300 text-sm mb-1">Especialidade em Burnout</h4>
+                            <p class="text-xs text-gray-400">Tratamento do esgotamento e da sensação de dívida interna constante.</p>
+                        </div>
+                        <div class="p-4 bg-darkcard rounded-xl border border-darkborder">
+                            <h4 class="font-semibold text-gold-300 text-sm mb-1">Manejo de TDAH & Caos</h4>
+                            <p class="text-xs text-gray-400">Abordagem integrativa para hiperfoco, desregulação e rotina.</p>
+                        </div>
+                    </div>
+
+                    <!-- Quote Block -->
+                    <div class="p-6 rounded-xl bg-gold-500/5 border-l-2 border-gold-500 my-6">
+                        <p class="font-serif italic text-sm text-gray-300">
+                            "Não se trata de ajustar o indivíduo a uma máquina de produção, mas de devolver a ele a autoria do seu próprio desejo."
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SERVICES & CORPORATE ADVISORY -->
+        <section id="servicos" class="py-24 bg-darkcard/30 border-t border-darkborder">
+            <div class="max-w-7xl mx-auto px-6">
+                
+                <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+                    <h2 class="text-xs uppercase font-bold tracking-widest text-gold-400">Modelos de Atendimento</h2>
+                    <p class="font-serif text-3xl sm:text-4xl font-bold text-white">Soluções Clínicas & Corporativas</p>
+                    <p class="text-gray-400 text-sm">Do acompanhamento individual à reestruturação de saúde mental em empresas de médio e grande porte.</p>
+                </div>
+
+                <!-- Interactive Tabs for Services -->
+                <div class="max-w-4xl mx-auto">
+                    <div class="flex justify-center mb-8 border-b border-darkborder space-x-4">
+                        <button onclick="switchTab('individual')" id="tab-individual" class="pb-4 px-6 font-medium text-sm border-b-2 border-gold-500 text-gold-400 transition-all">
+                            Clínica Individual (B2C)
+                        </button>
+                        <button onclick="switchTab('b2b')" id="tab-b2b" class="pb-4 px-6 font-medium text-sm border-b-2 border-transparent text-gray-400 hover:text-white transition-all">
+                            Assessoria Corporativa (B2B)
+                        </button>
+                    </div>
+
+                    <!-- Content Individual -->
+                    <div id="content-individual" class="bg-darkcard border border-darkborder rounded-2xl p-8 space-y-6">
+                        <div class="flex items-center justify-between">
+                            <h3 class="font-serif text-2xl font-bold text-white">Sessões Individuais de Psicanálise</h3>
+                            <span class="text-xs bg-gold-500/10 text-gold-400 border border-gold-500/30 px-3 py-1 rounded-full">Online & Presencial</span>
+                        </div>
+                        <p class="text-gray-300 text-sm leading-relaxed">
+                            Acompanhamento analítico sob medida para profissionais, executivos, médicos e estudantes de alta performance. Um espaço seguro de sigilo absoluto para tratar angústia, fobias, desorganização pessoal e impasses de carreira.
+                        </p>
+                        <ul class="space-y-3 text-sm text-gray-400">
+                            <li class="flex items-center space-x-3">
+                                <i data-lucide="check" class="w-4 h-4 text-gold-400"></i>
+                                <span>Sessões semanais com duração de 50 minutos.</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <i data-lucide="check" class="w-4 h-4 text-gold-400"></i>
+                                <span>Escuta integrada com referenciais médicos e neurocientíficos.</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <i data-lucide="check" class="w-4 h-4 text-gold-400"></i>
+                                <span>Plano terapêutico focado na autonomia do sujeito.</span>
+                            </li>
+                        </ul>
+                        <div class="pt-4">
+                            <button onclick="openModal('agendamento')" class="px-6 py-3 bg-gold-500 hover:bg-gold-400 text-black font-semibold rounded-xl text-sm transition-colors">
+                                Solicitar Entrevista Inicial
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Content B2B -->
+                    <div id="content-b2b" class="hidden bg-darkcard border border-darkborder rounded-2xl p-8 space-y-6">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <h3 class="font-serif text-2xl font-bold text-white">Programa "Voz & Escuta Corporativa"</h3>
+                                <p class="text-xs text-gold-400">Intervenções Diagnósticas para Médias e Grandes Empresas</p>
+                            </div>
+                            <span class="text-xs bg-gold-500/10 text-gold-400 border border-gold-500/30 px-3 py-1 rounded-full">Contrato Recorrente</span>
+                        </div>
+                        <p class="text-gray-300 text-sm leading-relaxed">
+                            Um sistema contínuo de diagnóstico anônimo e intervenção em grupo desenhado para indústrias, redes de varejo e grandes corporações. Reduz absenteísmo, turnover e sinistralidade do plano de saúde.
+                        </p>
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 my-4">
+                            <div class="p-4 bg-obsidian rounded-xl border border-darkborder text-center">
+                                <span class="block text-gold-400 font-bold text-lg mb-1">Passo 1</span>
+                                <span class="text-xs text-gray-300">Coleta Anônima de Dados (Urnas/Fichas)</span>
+                            </div>
+                            <div class="p-4 bg-obsidian rounded-xl border border-darkborder text-center">
+                                <span class="block text-gold-400 font-bold text-lg mb-1">Passo 2</span>
+                                <span class="text-xs text-gray-300">Rodas Mensais de Intervenção em Grupo</span>
+                            </div>
+                            <div class="p-4 bg-obsidian rounded-xl border border-darkborder text-center">
+                                <span class="block text-gold-400 font-bold text-lg mb-1">Passo 3</span>
+                                <span class="text-xs text-gray-300">Relatório de Métricas & ROI para o RH</span>
+                            </div>
+                        </div>
+
+                        <div class="pt-4 flex flex-col sm:flex-row gap-4">
+                            <button onclick="openModal('b2b')" class="px-6 py-3 bg-gold-500 hover:bg-gold-400 text-black font-semibold rounded-xl text-sm transition-colors">
+                                Solicitar Proposta Comercial B2B
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- WHATSAPP PRIVATE GROUP AUDIO PREVIEW SECTION -->
+        <section id="grupo" class="py-24 relative overflow-hidden">
+            <div class="max-w-7xl mx-auto px-6">
+                
+                <div class="bg-gradient-to-br from-darkcard via-obsidian to-darkcard border border-gold-500/30 rounded-3xl p-8 sm:p-12 gold-border-glow relative overflow-hidden">
+                    <div class="absolute -right-10 -bottom-10 w-80 h-80 bg-gold-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                        
+                        <!-- Info Column -->
+                        <div class="lg:col-span-7 space-y-6">
+                            <div class="inline-flex items-center space-x-2 text-xs font-semibold uppercase tracking-wider text-gold-400 bg-gold-500/10 px-3 py-1 rounded-full border border-gold-500/20">
+                                <i data-lucide="radio" class="w-3.5 h-3.5"></i>
+                                <span>Curadoria Exclusiva via WhatsApp</span>
+                            </div>
+
+                            <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white">
+                                Grupo Fechado: Áudios & Reflexões Semanais
+                            </h2>
+
+                            <p class="text-gray-300 text-sm leading-relaxed">
+                                Um espaço reservado para quem busca pensar o comportamento humano com profundidade. Sem spam ou mensagens superficiais: apenas 2 áudios por semana ligando ciência médica, clínica psicanalítica e filosofia.
+                            </p>
+
+                            <!-- Audio Player Simulator -->
+                            <div class="bg-obsidian/90 border border-darkborder p-4 rounded-2xl space-y-3">
+                                <div class="flex items-center justify-between text-xs text-gray-400">
+                                    <span class="flex items-center space-x-2">
+                                        <i data-lucide="mic" class="w-4 h-4 text-gold-400"></i>
+                                        <strong class="text-gray-200">Áudio #01: A Tirania da Performance</strong>
+                                    </span>
+                                    <span>2:45 min</span>
+                                </div>
+
+                                <!-- Audio Waveform / Progress bar -->
+                                <div class="flex items-center space-x-3">
+                                    <button id="playBtn" onclick="toggleAudio()" class="w-10 h-10 rounded-full bg-gold-500 hover:bg-gold-400 text-black flex items-center justify-center transition-transform transform active:scale-95">
+                                        <i id="playIcon" data-lucide="play" class="w-5 h-5 fill-current"></i>
+                                    </button>
+                                    <div class="flex-1 bg-darkborder h-2 rounded-full overflow-hidden relative">
+                                        <div id="audioProgress" class="bg-gradient-to-r from-gold-600 to-gold-400 h-full w-1/3 transition-all duration-300"></div>
+                                    </div>
+                                    <span class="text-[11px] text-gold-400 font-mono">0:54</span>
+                                </div>
+                                <p class="text-[11px] text-gray-400 italic">"Por que nos sentimos em dívida interna constante mesmo após um dia produtivo?"</p>
+                            </div>
+
+                            <div class="pt-2">
+                                <a href="https://wa.me/5535999999999?text=Quero%20entrar%20no%20grupo%20fechado%20Al%C3%A9m%20do%20Sintoma" target="_blank" class="inline-flex items-center space-x-3 px-8 py-4 bg-gold-500 hover:bg-gold-400 text-black font-semibold rounded-xl text-sm transition-all shadow-lg shadow-gold-500/20">
+                                    <i data-lucide="message-square" class="w-5 h-5"></i>
+                                    <span>Garantir Vaga no Grupo Gratuito</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Right Illustration Card -->
+                        <div class="lg:col-span-5 flex justify-center">
+                            <div class="p-6 bg-obsidian border border-darkborder rounded-2xl space-y-4 text-center max-w-sm">
+                                <div class="w-16 h-16 mx-auto rounded-full bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400">
+                                    <i data-lucide="shield-check" class="w-8 h-8"></i>
+                                </div>
+                                <h4 class="font-serif text-lg font-bold text-white">Privacidade Garantida</h4>
+                                <p class="text-xs text-gray-400 leading-relaxed">
+                                    Grupo com número de participantes oculto. Apenas o fundador envia conteúdos. Sem notificações excessivas.
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- TESTIMONIALS / CLINICAL ETHICS -->
+        <section class="py-20 bg-darkcard/20 border-t border-darkborder">
+            <div class="max-w-5xl mx-auto px-6 text-center space-y-8">
+                <i data-lucide="quote" class="w-10 h-10 text-gold-500/40 mx-auto"></i>
+                
+                <p class="font-serif text-xl sm:text-2xl text-gray-200 leading-relaxed italic">
+                    "O amor-próprio não é egoísmo; é o reconhecimento de que nós próprios somos um ser que nos foi confiado para cuidar."
+                </p>
+
+                <div class="text-xs text-gold-400 font-semibold uppercase tracking-widest">
+                    — Paul Tillich (Filósofo Existencialista)
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-obsidian border-t border-darkborder py-12 relative z-10">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+            
+            <div class="flex items-center space-x-3">
+                <div class="w-8 h-8 rounded-full border border-gold-500/40 bg-darkcard flex items-center justify-center">
+                    <span class="font-serif font-bold text-xs gold-gradient-text">JF</span>
+                </div>
+                <span class="font-serif font-bold text-sm tracking-wider text-white">ALÉM DO SINTOMA</span>
+            </div>
+
+            <p class="text-xs text-gray-400 text-center md:text-left">
+                &copy; 2026 Jhuan Fernandes — Psicanálise, Medicina & Filosofia. Todos os direitos reservados.
+            </p>
+
+            <div class="flex items-center space-x-6 text-xs text-gray-400">
+                <a href="#sobre" class="hover:text-gold-400 transition-colors">Ética Clínica</a>
+                <a href="#servicos" class="hover:text-gold-400 transition-colors">B2B</a>
+                <a href="https://wa.me/5535999999999" target="_blank" class="text-gold-400 hover:underline">Contato Direto</a>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE MODAL FOR SCHEDULING / INQUIRY -->
+    <div id="modalOverlay" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-darkcard border border-gold-500/30 w-full max-w-lg rounded-2xl p-6 sm:p-8 space-y-6 relative gold-border-glow">
+            
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+
+            <div class="space-y-2">
+                <h3 id="modalTitle" class="font-serif text-2xl font-bold text-white">Agendar Sessão de Análise</h3>
+                <p id="modalSubtitle" class="text-xs text-gray-400">Preencha os dados abaixo para verificar a disponibilidade de horário.</p>
+            </div>
+
+            <form onsubmit="handleFormSubmit(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-semibold text-gray-300 uppercase mb-1">Nome Completo</label>
+                    <input type="text" required placeholder="Seu nome" class="w-full bg-obsidian border border-darkborder rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-gold-500">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold text-gray-300 uppercase mb-1">WhatsApp / Telefone</label>
+                    <input type="tel" required placeholder="(00) 99999-9999" class="w-full bg-obsidian border border-darkborder rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-gold-500">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold text-gray-300 uppercase mb-1">Motivo Principal da Consulta</label>
+                    <select class="w-full bg-obsidian border border-darkborder rounded-xl px-4 py-3 text-sm text-gray-300 focus:outline-none focus:border-gold-500">
+                        <option>Ansiedade / Burnout</option>
+                        <option>TDAH / Desorganização</option>
+                        <option>Dilemas de Carreira / Performance</option>
+                        <option>Assessoria Empresarial B2B</option>
+                        <option>Outros</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="w-full py-4 bg-gold-500 hover:bg-gold-400 text-black font-semibold rounded-xl text-sm transition-colors mt-2">
+                    Enviar Solicitação via WhatsApp
+                </button>
+            </form>
+
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT FOR INTERACTIVITY -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Mobile Drawer Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileDrawer = document.getElementById('mobileDrawer');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileDrawer.classList.toggle('hidden');
+        });
+
+        // Tab Switching Logic
+        function switchTab(type) {
+            const tabIndividual = document.getElementById('tab-individual');
+            const tabB2b = document.getElementById('tab-b2b');
+            const contentIndividual = document.getElementById('content-individual');
+            const contentB2b = document.getElementById('content-b2b');
+
+            if (type === 'individual') {
+                tabIndividual.classList.add('border-gold-500', 'text-gold-400');
+                tabIndividual.classList.remove('border-transparent', 'text-gray-400');
+                tabB2b.classList.remove('border-gold-500', 'text-gold-400');
+                tabB2b.classList.add('border-transparent', 'text-gray-400');
+
+                contentIndividual.classList.remove('hidden');
+                contentB2b.classList.add('hidden');
+            } else {
+                tabB2b.classList.add('border-gold-500', 'text-gold-400');
+                tabB2b.classList.remove('border-transparent', 'text-gray-400');
+                tabIndividual.classList.remove('border-gold-500', 'text-gold-400');
+                tabIndividual.classList.add('border-transparent', 'text-gray-400');
+
+                contentB2b.classList.remove('hidden');
+                contentIndividual.classList.add('hidden');
+            }
+        }
+
+        // Audio Simulation State
+        let isPlaying = false;
+        function toggleAudio() {
+            const playIcon = document.getElementById('playIcon');
+            const audioProgress = document.getElementById('audioProgress');
+
+            isPlaying = !isPlaying;
+
+            if (isPlaying) {
+                playIcon.setAttribute('data-lucide', 'pause');
+                audioProgress.style.width = '75%';
+            } else {
+                playIcon.setAttribute('data-lucide', 'play');
+                audioProgress.style.width = '33%';
+            }
+            lucide.createIcons();
+        }
+
+        // Modal Functionality
+        function openModal(type) {
+            const overlay = document.getElementById('modalOverlay');
+            const title = document.getElementById('modalTitle');
+            const subtitle = document.getElementById('modalSubtitle');
+
+            if (type === 'b2b') {
+                title.innerText = 'Proposta Comercial B2B';
+                subtitle.innerText = 'Solicite um diagnóstico para a sua empresa (Voz & Escuta Corporativa).';
+            } else {
+                title.innerText = 'Agendar Sessão de Análise';
+                subtitle.innerText = 'Preencha os dados para verificar a disponibilidade de atendimento.';
+            }
+
+            overlay.classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('modalOverlay').classList.add('hidden');
+        }
+
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            alert('Sua solicitação foi enviada! Redirecionando para atendimento direto no WhatsApp...');
+            closeModal();
+            window.open('https://wa.me/5535999999999?text=Ol%C3%A1%2C%20gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20atendimento.', '_blank');
+        }
+    </script>
+</body>
+</html>
